@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,19 +11,21 @@
 </head>
 
 <body>
-    <form id="form">
-        <label for="form_first_name_input">First name: </label>
-        <input type="text" id="form_first_name_input">
-        <label for="form_surname_input">Surname: </label>
-        <input type="text" id="form_surname_input">
-        <label for="form_age_input">Age: </label>
-        <input type="text" id="form_age_input">
-        <label for="form_height_input">Height (cm): </label>
-        <input type="text" id="form_height_input">
-        <label for="form_weight_input">Weight (kg): </label>
-        <input type="text" id="form_weight_input">
-        <button type="submit">Calculate</button>
-    </form>
+    <div id="form-showcase">
+        <form id="form">
+            <label for="form_first_name_input">First name: </label>
+            <input type="text" style="width: 20%;" style="width:auto" id="form_first_name_input">
+            <label for="form_surname_input">Surname: </label>
+            <input type="text" style="width: 20%" id="form_surname_input">
+            <label for="form_age_input">Age: </label>
+            <input type="text" style="width: 20%" id="form_age_input">
+            <label for="form_height_input">Height (m): </label>
+            <input type="text" style="width: 20%" id="form_height_input">
+            <label for="form_weight_input">Weight (kg): </label>
+            <input type="text" style="width: 20%" id="form_weight_input">
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
     <button id="delete_button">Start Over</button>
 </body>
 

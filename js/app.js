@@ -16,12 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     createUnorderedList.classList.add('ulist');
     body.appendChild(createUnorderedList);
 
-    createUnorderedList();
-
     const deleteButton = document.querySelector('#delete_button');
     deleteButton.addEventListener('click', handleDeleteButton);
 
-})
+});
 
 const submitName = function (event) {
     const firstName = event.target.form_first_name_input.value;
@@ -60,8 +58,7 @@ const calculateBMI = function (event) {
     const height = event.target.form_height_input.value;
     const weight = event.target.form_weight_input.value;
     const bmiListItem= document.createElement('h2');
-    let result = (weight / (height*height));
-    result = roundNumber(result);
+    let result = roundNumber((weight/(height*height)));
     bmiListItem.innerText = `Your BMI is: ${result}%`
     bmiListItem.classList.add('listItem');
     return bmiListItem
@@ -86,7 +83,6 @@ const handleDeleteButton = function () {
     const ulist = document.querySelector('ul')
     const listItems = document.querySelector('listItem')
     ulist.remove('listItem');
-
     createUnorderedList();
 };
 
