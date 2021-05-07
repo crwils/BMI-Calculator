@@ -16,35 +16,43 @@ document.addEventListener('DOMContentLoaded', () => {
     createUnorderedList.classList.add('ulist');
     body.appendChild(createUnorderedList);
 
+    createUnorderedList();
+
+    const deleteButton = document.querySelector('#delete_button');
+    deleteButton.addEventListener('click', handleDeleteButton);
+
 })
 
 const submitName = function (event) {
     const firstName = event.target.form_first_name_input.value;
     const surname = event.target.form_surname_input.value;
     const nameListItem = document.createElement('li');
-    nameListItem.textContent = (`${firstName} ${surname}`);
-    nameListItem.classList.add('name');
+    nameListItem.innerText = (`${firstName} ${surname}`);
+    nameListItem.classList.add('listItem');
     return nameListItem;
 };
 
 const submitAge = function (event) {
     const age = event.target.form_age_input.value;
     const ageListItem = document.createElement('li');
-    ageListItem.textContent = `${age} years old`;
+    ageListItem.innerText = `${age} years old`;
+    ageListItem.classList.add('listItem');
     return ageListItem;
 };
 
 const submitHeight = function (event) {
     const height = event.target.form_height_input.value;
     const heightListItem = document.createElement('li');
-    heightListItem.textContent = `${height}cm`;
+    heightListItem.innerText = `${height}cm`;
+    heightListItem.classList.add('listItem');
     return heightListItem;
 }
 
 const submitWeight = function (event) {
     const weight = event.target.form_weight_input.value;
     const weightListItem = document.createElement('li');
-    weightListItem.textContent = `${weight}kg`;
+    weightListItem.innerText = `${weight}kg`;
+    weightListItem.classList.add('listItem');
     return weightListItem;
 }
 
@@ -52,9 +60,15 @@ const calculateBMI = function (event) {
     const height = event.target.form_height_input.value;
     const weight = event.target.form_weight_input.value;
     const bmiListItem= document.createElement('h2');
-    const result = weight * (height*height);
-    bmiListItem.textContent = `Your BMI is: ${result}`
+    let result = (weight / (height*height));
+    result = roundNumber(result);
+    bmiListItem.innerText = `Your BMI is: ${result}%`
+    bmiListItem.classList.add('listItem');
     return bmiListItem
+}
+
+const roundNumber = function (number) {
+    return Number.parseFloat(number).toFixed(2);
 }
 
 const handleFormSubmit = function (event) {
@@ -68,5 +82,17 @@ const handleFormSubmit = function (event) {
     document.getElementById('form').reset();
 };
 
+const handleDeleteButton = function () {
+    const ulist = document.querySelector('ul')
+    const listItems = document.querySelector('listItem')
+    ulist.remove('listItem');
 
+    createUnorderedList();
+};
 
+const createUnorderedList = function () {
+    const body = document.querySelector('body');
+    const createUnorderedList = document.createElement('ul');
+    createUnorderedList.classList.add('ulist');
+    body.appendChild(createUnorderedList);
+}
