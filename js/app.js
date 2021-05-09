@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('JS loaded');
 
     const pageHeader = document.createElement('h1');
-    pageHeader.innerText = 'BMI Calculator';
+    pageHeader.innerText = `BMI Calculator`;
     const formid = document.getElementById('form');
     formid.insertBefore(pageHeader, formid.childNodes[0]);
 
@@ -57,12 +57,28 @@ const submitWeight = function (event) {
 const calculateBMI = function (event) {
     const height = event.target.form_height_input.value;
     const weight = event.target.form_weight_input.value;
-    const bmiListItem= document.createElement('h2');
-    let result = roundNumber((weight/(height*height)));
-    bmiListItem.innerText = `Your BMI is: ${result}%`
+    const bmiListItem = document.createElement('h2');
+    const result = roundNumber((weight/(height*height)));
+    const range = calculateBMIRange(result);
+    console.log(range);
+    console.log(result);
+    bmiListItem.innerText = `Your BMI is: ${result}.
+    ${range}`
     bmiListItem.classList.add('listItem');
     return bmiListItem
 }
+
+const calculateBMIRange = function (result) {
+    if (result <= 18.5) {
+        return `You're in the underweight range!`
+    } else if (result <= 24.9) {
+        return `You're in the healthy weight range!`
+    } else if (result <= 29.9) {
+        return `You're in the overweight range!`
+    } else {
+        return `You're in the obese range!`
+    };
+};
 
 const roundNumber = function (number) {
     return Number.parseFloat(number).toFixed(2);

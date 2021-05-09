@@ -4,7 +4,6 @@
     margin: 0;
 }
 
-
 body {
     background-color: rgb(255, 230, 168);
     color: black;
@@ -23,14 +22,9 @@ ul {
     flex-direction: column;
 }
 
-/* #form_first_name_input {
-    justify-content: center;
-    text-align: center;
-} */
-
 #form-showcase {
     background-color: (255, 230, 168);
-    color: black;
+    color: black; (73, 206, 255);
     text-align:left;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -54,7 +48,7 @@ button {
 
 button:visited,
 button:active {
-    color: #333;
+    color: rgb(73, 206, 255);
     text-decoration: none;
 }
 
