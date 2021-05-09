@@ -60,23 +60,21 @@ const calculateBMI = function (event) {
     const bmiListItem = document.createElement('h2');
     const result = roundNumber((weight/(height*height)));
     const range = calculateBMIRange(result);
-    console.log(range);
-    console.log(result);
     bmiListItem.innerText = `Your BMI is: ${result}.
-    ${range}`
+    ${range}`;
     bmiListItem.classList.add('listItem');
-    return bmiListItem
+    return bmiListItem;
 }
 
 const calculateBMIRange = function (result) {
     if (result <= 18.5) {
-        return `You're in the underweight range!`
+        return `You're in the underweight range!`;
     } else if (result <= 24.9) {
-        return `You're in the healthy weight range!`
+        return `You're in the healthy weight range!`;
     } else if (result <= 29.9) {
-        return `You're in the overweight range!`
+        return `You're in the overweight range!`;
     } else {
-        return `You're in the obese range!`
+        return `You're in the obese range!`;
     };
 };
 
@@ -107,4 +105,4 @@ const createUnorderedList = function () {
     const createUnorderedList = document.createElement('ul');
     createUnorderedList.classList.add('ulist');
     body.appendChild(createUnorderedList);
-}
+};
