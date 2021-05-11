@@ -25,7 +25,7 @@ const submitName = function (event) {
     const firstName = event.target.form_first_name_input.value;
     const surname = event.target.form_surname_input.value;
     const nameListItem = document.createElement('li');
-    nameListItem.innerText = (`${firstName} ${surname}`);
+    nameListItem.innerText = (`Name: ${firstName} ${surname}`);
     nameListItem.classList.add('listItem');
     return nameListItem;
 };
@@ -33,7 +33,7 @@ const submitName = function (event) {
 const submitAge = function (event) {
     const age = event.target.form_age_input.value;
     const ageListItem = document.createElement('li');
-    ageListItem.innerText = `${age} years old`;
+    ageListItem.innerText = `Age: ${age} years old`;
     ageListItem.classList.add('listItem');
     return ageListItem;
 };
@@ -41,7 +41,7 @@ const submitAge = function (event) {
 const submitHeight = function (event) {
     const height = event.target.form_height_input.value;
     const heightListItem = document.createElement('li');
-    heightListItem.innerText = `${height}cm`;
+    heightListItem.innerText = `Height: ${height}cm`;
     heightListItem.classList.add('listItem');
     return heightListItem;
 }
@@ -49,7 +49,7 @@ const submitHeight = function (event) {
 const submitWeight = function (event) {
     const weight = event.target.form_weight_input.value;
     const weightListItem = document.createElement('li');
-    weightListItem.innerText = `${weight}kg`;
+    weightListItem.innerText = `Weight: ${weight}kg`;
     weightListItem.classList.add('listItem');
     return weightListItem;
 }
@@ -63,6 +63,8 @@ const calculateBMI = function (event) {
     bmiListItem.innerText = `Your BMI is: ${result}.
     ${range}`;
     bmiListItem.classList.add('listItem');
+    bmiListItem.style.paddingBottom = "100px"
+    bmiListItem.style.paddingTop = "10px"
     return bmiListItem;
 }
 
@@ -90,7 +92,7 @@ const handleFormSubmit = function (event) {
     ulist.appendChild(submitHeight(event));
     ulist.appendChild(submitWeight(event));
     ulist.appendChild(calculateBMI(event));
-    document.getElementById('form').reset();
+    this.reset();
 };
 
 const handleDeleteButton = function () {
